@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://d4lw46jsqxh8u"]
+
+[ext_resource type="Script" uid="uid://baikw3gy12lux" path="res://drone.gd" id="1_d5du7"]
+[ext_resource type="PackedScene" uid="uid://bn3ercc7ejtkx" path="res://prop.tscn" id="1_uvgqj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d5du7"]
+size = Vector3(0.5, 0.1, 0.5)
+
+[node name="drone" type="RigidBody3D"]
+script = ExtResource("1_d5du7")
+
+[node name="prop3" parent="." node_paths=PackedStringArray("copter") instance=ExtResource("1_uvgqj")]
+transform = Transform3D(0.780529, 0, 0.62512, 0, 1, 0, -0.62512, 0, 0.780529, 0.594011, 0.15, 0.960099)
+copter = NodePath("..")
+
+[node name="prop4" parent="." node_paths=PackedStringArray("copter") instance=ExtResource("1_uvgqj")]
+transform = Transform3D(0.655651, 0, -0.755064, 0, 1, 0, 0.755064, 0, 0.655651, -0.78559, 0.15, 0.821537)
+copter = NodePath("..")
+
+[node name="prop2" parent="." node_paths=PackedStringArray("copter") instance=ExtResource("1_uvgqj")]
+transform = Transform3D(-0.603389, 0, -0.797447, 0, 1, 0, 0.797447, 0, -0.603389, -0.926327, 0.15, -0.927175)
+copter = NodePath("..")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+size = Vector3(0.5, 0.1, 1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_d5du7")
+
+[node name="prop" parent="." node_paths=PackedStringArray("copter") instance=ExtResource("1_uvgqj")]
+transform = Transform3D(-0.508485, 0, 0.861071, 0, 1, 0, -0.861071, 0, -0.508485, 0.984, 0.15, -0.873)
+copter = NodePath("..")
+
+[node name="Node3D" type="Node3D" parent="."]
